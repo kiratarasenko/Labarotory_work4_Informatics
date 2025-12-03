@@ -1,8 +1,21 @@
+
 def xml_con(obj):
     if type(obj) == int:
         number = f"""<number>{obj}</number>"""
         return number
     if type(obj) == str:
+        for char in obj:
+            if char == "<":
+                char = "&lt"
+            if char == ">":
+                char = "&gt"
+            if char == '"':
+                char = "&quot"
+            if char == "'":
+                char = "&apos"
+            if char == "&":
+                char = "&amp"
+
         obj = f"<string>{obj}</string>"
         return obj
     if type(obj) == list:
@@ -17,6 +30,7 @@ def xml_con(obj):
             result += f'<key name="{k}">' + xml_con(v) + "</key>"
         result += "</object>"
         return result
+
 
 import binary_parser
 

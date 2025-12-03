@@ -12,7 +12,3 @@ binary_data = binary_encoder.object_bytes(data)
 # записываем в бинарный файл
 with open("schedule1.bin", "wb") as my_file:
     my_file.write(binary_data)
-
-
-
-
